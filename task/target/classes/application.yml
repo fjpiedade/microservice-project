@@ -1,11 +1,11 @@
 server:
-  port: 9000
+  port: 9010
 
 spring:
   application:
-    name: project
+    name: task
   datasource:
-    url: jdbc:postgresql://localhost:5435/project
+    url: jdbc:postgresql://localhost:5435/task
     username: 'postgres'
     password: 'password'
 

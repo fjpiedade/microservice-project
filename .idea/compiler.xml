@@ -8,6 +8,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="project" />
+        <module name="notification" />
+        <module name="task" />
+        <module name="eureka-server" />
       </profile>
     </annotationProcessing>
   </component>
