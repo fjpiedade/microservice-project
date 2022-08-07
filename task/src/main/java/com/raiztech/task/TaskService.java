@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -22,5 +23,9 @@ public class TaskService {
                 .createdAt(LocalDateTime.now())
                 .build());
         return true;
+    }
+
+    public List<Task> getAll() {
+        return taskRepository.findAll();
     }
 }

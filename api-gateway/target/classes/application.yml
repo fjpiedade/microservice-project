@@ -1,0 +1,50 @@
+server:
+  port: 9990
+
+spring:
+  application:
+    name: api-gateway
+#  zipkin:
+#    base-url: http://localhost:9991
+  cloud:
+    gateway:
+      routes:
+        - id: project
+          uri: lb://PROJECT
+          predicates:
+            - Path=/api/v1/project/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: project
+                fallbackuri: forward:/projectFallBack
+        - id: task
+          uri: lb://TASK
+          predicates:
+            - Path=/api/v1/task/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: task
+                fallbackuri: forward:/taskFallBack
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true

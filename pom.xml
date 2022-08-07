@@ -13,7 +13,9 @@
     <module>project</module>
       <module>task</module>
     <module>eureka-server</module>
-      <module>notification</module>
+      <module>api-gateway</module>
+    <module>gateway</module>
+      <module>hytrix-dashboard</module>
   </modules>
 
   <name>raiztech-services</name>

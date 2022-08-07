@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -36,5 +37,9 @@ public class ProjectService {
           throw new IllegalStateException("Save Project Successfully");
         }
         //TODO: send Notification
+    }
+
+    public List<Project> getAll() {
+        return projectRepository.findAll();
     }
 }
