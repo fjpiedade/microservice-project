@@ -15,11 +15,17 @@ public class ProjectController {
     @Autowired
     ProjectService projectService;
 
+    //@HystrixCommand(fallbackMethod="unknown")
     @PostMapping
     public void createProject(@RequestBody Project projectRegistrationRequest){
         log.info("new Project created {}",projectRegistrationRequest);
         projectService.registerProject(projectRegistrationRequest);
     }
+    public String unknown() {
+        System.out.println("~~~~~~~~~");
+        return "unknown";
+    }
+
 
     @GetMapping
     public ResponseEntity<List<Project>> getAllProject(){
