@@ -1,0 +1,22 @@
+server:
+  port: 9010
+
+spring:
+  application:
+    name: task
+  zipkin:
+    base-url: http://localhost:9411
+  datasource:
+    url: jdbc:postgresql://localhost:5435/task
+    username: 'postgres'
+    password: 'password'
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: 'true'
+    show-sql: 'true'
+

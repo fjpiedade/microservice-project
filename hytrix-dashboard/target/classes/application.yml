@@ -1,0 +1,28 @@
+server:
+  port: 9195
+
+spring:
+  application:
+    name: hystrix-dashboard
+#  cloud:
+#    config:
+#      enabled: true
+#      uri: http://localhost:9991
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "*"
+
+management:
+  endpoint:
+    hystrix:
+      stream:
+        enabled: true
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#      #base-path: "/"
+#  hystrix:
+#    stream:
+#      enabled: true
